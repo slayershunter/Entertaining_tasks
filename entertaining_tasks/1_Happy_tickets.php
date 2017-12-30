@@ -10,7 +10,18 @@
 // 2. Быстрым (не выполняющим лишних действий)
 
 // Если не получается найти такое решение - решите хоть как-нибудь.
+$ticket_count = 0;
 
 
+for ($i = 1; $i <= 999999; $i++) {
+    $ticket = sprintf('%06d', $i);
+    $numbers = str_split($ticket, 1);
+    if ($numbers[0] + $numbers[1] + $numbers[2] == $numbers[3] + $numbers[4] + $numbers[5]) {
+        echo "Билет №$ticket - счастливый!!!\n";
+        $ticket_count++;
+    }
+}
+$percent_happy = round($ticket_count / (999999 / 100), 2);
+print "Из всех билетов (999999) только $percent_happy% счастливые!\n";
 
 ?>
